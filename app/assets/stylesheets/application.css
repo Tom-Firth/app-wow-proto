@@ -13,3 +13,26 @@
  *= require_tree .
  *= require_self
  */
+
+html, body {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  padding: 0;
+  margin: 0;
+  min-width: 100vw;
+  min-height: 100vh;
+  background-image: linear-gradient(to right bottom, #a18723, #8a681c, #704b16, #543210, #371b05);
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,18 @@
+<%= link_to "back", root_path %>
+
+<ul>
+  <% @users.each do |user| %>
+    <li>
+      <div style="display: flex;">
+        <div><b><%= user.username %></b></div>
+        <div>(<%= user.localisation %>)</div>
+        <% if user.dispo == true %>
+          <div style="width: 10px; height: 10px; border-radius: 50%; background-color: green;"></div>
+        <% elsif user.dispo == false %>
+          <div style="width: 10px; height: 10px; border-radius: 50%; background-color: red;"></div>
+        <% end %>
+      </div>
+    </li>
+  <% end %>
+</ul>
+

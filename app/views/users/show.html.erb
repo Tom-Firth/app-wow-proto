@@ -1,0 +1,30 @@
+<h1>Users - Profil</h1>
+    <div style="display: flex;">
+      <div><b><%= @user.username %></b></div>
+      <div>(<%= @user.localisation %>)</div>
+      <% if @user.dispo == true %>
+        <div style="width: 10px; height: 10px; border-radius: 50%; background-color: green;"></div>
+      <% elsif @user.dispo == false %>
+        <div style="width: 10px; height: 10px; border-radius: 50%; background-color: red;"></div>
+      <% end %>
+    </div>
+  <ul>
+    <% @user.personnages.each do |perso| %>
+    <li>
+      <%= perso.name %> | <%= perso.description %> | <%= perso.server %>
+    </li>
+    <% end %>
+  </ul>
+
+  <%= link_to "back", users_path %>
+  <% if @user.dispo == true %>
+    <% form_for(dispo_path(@user), method: "post") do |f| %>
+    <% f.submit "passer hors-ligne" %>
+    <% end %>
+    <%= link_to "Passer Hors-Ligne", dispo_path(@user), method: :post %>
+  <% elsif @user.dispo == false %>
+    <% form_for(dispo_path(@user), method: "post") do |f| %>
+    <% f.submit "passer en-ligne" %>
+    <% end %>
+    <%= link_to "Passer En-Ligne", dispo_path(@user), method: :post %>
+  <% end %>
